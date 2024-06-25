@@ -187,7 +187,11 @@ const index = pinecone.index<ArticleRecord>(indexName).namespace("default");
 await embedder.init("Xenova/all-MiniLM-L6-v2");
 
 const { query, section } = getQueryingCommandLineArguments();
+```
 
+
+# This is What I need
+```typescript
 // We create a simulated user with an interest given a query and a specific section
 const queryEmbedding = await embedder.embed(query);
 const queryResult = await index.query({
@@ -200,6 +204,7 @@ const queryResult = await index.query({
   topK: 10,
 });
 ```
+
 
 We'll calculate the **mean** vector given the results of the query. The mean vector represents the user's interests based on the articles they've read.
 
